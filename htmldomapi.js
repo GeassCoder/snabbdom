@@ -10,7 +10,7 @@ function createTextNode(text){
   return document.createTextNode(text);
 }
 
-
+// when referenceNode is null, it inserts newNode at the end of parentNode
 function insertBefore(parentNode, newNode, referenceNode){
   parentNode.insertBefore(newNode, referenceNode);
 }

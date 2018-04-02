@@ -11,6 +11,13 @@ function addNS(data, children, sel) {
   }
 }
 
+// adjust params
+// support overloading
+// h(sel, data, children[])
+// h(sel, data, text)
+// h(sel, children[])
+// h(sel, text)
+// h(sel, data)
 module.exports = function h(sel, b, c) {
   var data = {}, children, text, i;
   if (c !== undefined) {
@@ -24,6 +31,7 @@ module.exports = function h(sel, b, c) {
   }
   if (is.array(children)) {
     for (i = 0; i < children.length; ++i) {
+      // if child is primative, it's a text node and make it a text node
       if (is.primitive(children[i])) children[i] = VNode(undefined, undefined, undefined, children[i]);
     }
   }
